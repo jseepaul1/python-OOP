@@ -1,8 +1,13 @@
 # Assignment: BankAccount
+import random
+from math import ceil
+
+
 class BankAccount:
     bank_accounts = []
 
     def __init__(self, int_rate, balance=0):
+        self.id = ceil(10000000 * random.uniform(0, 1))
         self.int_rate = int_rate
         self.balance = balance
         self.bank_accounts.append(self)
@@ -39,8 +44,10 @@ class BankAccount:
 account1 = BankAccount(0.03, 200)
 account2 = BankAccount(0.06, 250)
 
-account1.deposit(200.12).deposit(200).deposit(100).withdraw(500).yield_interest()
-account2.deposit(1000).deposit(400).withdraw(50).withdraw(100).withdraw(140).withdraw(21.15).yield_interest()
+account1.deposit(200.12).deposit(200).deposit(
+    100).withdraw(500).yield_interest()
+account2.deposit(1000).deposit(400).withdraw(50).withdraw(
+    100).withdraw(140).withdraw(21.15).yield_interest()
 
 account1.display_account_info()
 account2.display_account_info()
